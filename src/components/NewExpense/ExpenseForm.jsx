@@ -58,15 +58,15 @@ const ExpenseForm = ({onSaveExpenseData}) => {
         <form onSubmit={handleSubmit}>
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
-                    <lable>Title</lable>
+                    <label>Title</label>
                     <input type="text"  value={title} onChange={titleChangeHandler}/>
                 </div>
                 <div className='new-expense__control'>
-                    <lable>Amount</lable>
-                    <input type="number" value={amount} min="0.01" steps="0.01" onChange={amountChangeHandler} />
+                    <label>Amount</label>
+                    <input type="number" value={amount} min="0.01" step="0.01" onChange={amountChangeHandler} />
                 </div>
                 <div className='new-expense__control'>
-                    <lable>Date</lable>
+                    <label>Date</label>
                     <input type="date"  value={date} min="2020-01-01"  onChange={dateChangeHandler}/>
                 </div>
             </div>
