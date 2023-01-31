@@ -4,6 +4,8 @@ import ExpenseForm from './ExpenseForm'
 
 const NewExpense = ({onAddExpense}) => {
 
+    const [ showForm, setShowForm ] = React.useState(false)
+
     const saveExpenseDataHandler = (ExpenseData) => {
         const expenseData = {
             ...ExpenseData,
@@ -11,10 +13,17 @@ const NewExpense = ({onAddExpense}) => {
         }
         onAddExpense(expenseData)
     }
+
+    const cancelHandler = () => setShowForm(false)
     
     return (
         <div className='new-expense'>
-            <ExpenseForm onSaveExpenseData={saveExpenseDataHandler}/>
+            { showForm ? 
+                <ExpenseForm onSaveExpenseData={saveExpenseDataHandler}
+                    onCancelAddExpense={cancelHandler}
+                /> :
+                <button onClick={ () => setShowForm(true)}>Add New Expense</button>
+            }
         </div>
     )
 }
